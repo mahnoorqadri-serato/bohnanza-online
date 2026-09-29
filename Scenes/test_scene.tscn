@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://4h4bdpt1tqjf"]
 
 [ext_resource type="Script" path="res://Scenes/game_manager.gd" id="1_3dogw"]
+[ext_resource type="Script" uid="uid://c75ueu2kcv5c1" path="res://Scenes/button.gd" id="2_r5l72"]
 
 [node name="TestScene" type="Node3D" unique_id=314350917]
 
 [node name="GameManager" type="Node3D" parent="." unique_id=1534952253]
 script = ExtResource("1_3dogw")
+
+[node name="Button" type="Button" parent="GameManager" unique_id=1424636012]
+offset_right = 51.0
+offset_bottom = 42.0
+script = ExtResource("2_r5l72")
+
+[connection signal="pressed" from="GameManager/Button" to="GameManager/Button" method="_on_pressed"]
