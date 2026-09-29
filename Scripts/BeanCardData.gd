@@ -1,5 +1,5 @@
 class_name BeanCardData
-extends RefCounted
+extends Resource
 
 # x = cards for 1 coin, y for 2, z for 3, w for 4. -1 means that payout is unused.
 const COFFEE_BEANOMETER: Vector4i = Vector4i(4, 7, 10, 12)
@@ -26,35 +26,7 @@ const RED_FREQ: int = 8
 const GARDEN_FREQ: int = 6
 const COCOA_FREQ: int = 4
 
-const BEAN_FREQ: Array[int] = [
-	COFFEE_FREQ,
-	WAX_FREQ,
-	BLUE_FREQ,
-	CHILI_FREQ,
-	STINK_FREQ,
-	GREEN_FREQ,
-	SOY_FREQ,
-	BLACK_EYED_FREQ,
-	RED_FREQ,
-	GARDEN_FREQ,
-	COCOA_FREQ
-]
-
-const BEANOMETER_DATA: Array[Vector4i] = [
-	COFFEE_BEANOMETER,
-	WAX_BEANOMETER,
-	BLUE_BEANOMETER,
-	CHILI_BEANOMETER,
-	STINK_BEANOMETER,
-	GREEN_BEANOMETER,
-	SOY_BEANOMETER,
-	BLACK_EYED_BEANOMETER,
-	RED_BEANOMETER,
-	GARDEN_BEANOMETER,
-	COCOA_BEANOMETER,
-]
-
-const BEAN_NAMES: Array[String] = [
+@export var bean_names: Array[String] = [
 	"Coffee Bean",
 	"Wax Bean",
 	"Blue Bean",
@@ -66,4 +38,32 @@ const BEAN_NAMES: Array[String] = [
 	"Red Bean",
 	"Garden Bean",
 	"Cocoa Bean",
+]
+
+@export var bean_freq: Array[int] = [
+	COFFEE_FREQ,
+	WAX_FREQ,
+	BLUE_FREQ,
+	CHILI_FREQ,
+	STINK_FREQ,
+	GREEN_FREQ,
+	SOY_FREQ,
+	BLACK_EYED_FREQ,
+	RED_FREQ,
+	GARDEN_FREQ,
+	COCOA_FREQ,
+]
+
+@export var beanometer_data: Array[Vector4i] = [
+	COFFEE_BEANOMETER,
+	WAX_BEANOMETER,
+	BLUE_BEANOMETER,
+	CHILI_BEANOMETER,
+	STINK_BEANOMETER,
+	GREEN_BEANOMETER,
+	SOY_BEANOMETER,
+	BLACK_EYED_BEANOMETER,
+	RED_BEANOMETER,
+	GARDEN_BEANOMETER,
+	COCOA_BEANOMETER,
 ]
