@@ -14,4 +14,4 @@ func _on_pressed() -> void:
 	print("turn end button was clicked!")
 	# gross dependency to the parent for now. eventually the turn end button will uhhh.... not sure
 	var game_manager := get_parent()
-	game_manager.emit_signal("turn_ended") # DOESN'T WORK
+	game_manager.emit_signal("turn_ended", game_manager.currentPlayer) # DOESN'T WORK?

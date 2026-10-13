@@ -13,6 +13,7 @@ const card_data: BeanCardData = preload("res://Data/bean_card_data.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Game initialised with %d players" % NUM_PLAYERS)
 	turn_ended.connect(end_turn)
 	for bean_index in card_data.bean_freq.size():
 		var frequency := card_data.bean_freq[bean_index]
@@ -22,6 +23,12 @@ func _ready() -> void:
 				frequency,
 				card_data.beanometer_data[bean_index]
 			))
+
+	var counts: Dictionary[String, int] = {}
+	for card in currentDeck:
+		counts[card.name] = counts.get(card.name, 0) + 1
+	print("Initial deck: %d cards %s" % [currentDeck.size(), counts])
+	
 	start_turn()
 
 func start_turn() -> void:
