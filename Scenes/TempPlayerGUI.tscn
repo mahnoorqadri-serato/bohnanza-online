@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://4xyh6c0okiuj"]
+
+[ext_resource type="Script" uid="uid://ch32t3in2c4mo" path="res://Scripts/temp_player_gui.gd" id="1_w0opn"]
+
+[node name="TempPlayerGui" type="Node2D" unique_id=54502975]
+script = ExtResource("1_w0opn")
+
+[node name="Player" type="Node2D" parent="." unique_id=1735711846]
+
+[node name="Player Label" type="Label" parent="Player" unique_id=1267761627]
+offset_left = 118.0
+offset_top = 19.0
+offset_right = 180.0
+offset_bottom = 42.0
+text = "Player 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Hand Label" type="Label" parent="Player/Player Label" unique_id=682335272]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 31.0
+offset_right = 66.0
+offset_bottom = 54.0
+text = "Hand:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Fields Label" type="Label" parent="Player/Player Label" unique_id=837494787]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 56.0
+offset_right = 64.0
+offset_bottom = 79.0
+text = "Fields:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Plant Button" type="Button" parent="Player" unique_id=417653563]
+offset_left = 101.0
+offset_top = 152.0
+offset_right = 204.0
+offset_bottom = 189.0
+text = "Plant"
+metadata/_edit_use_anchors_ = true
+
+[node name="Trade Button" type="Button" parent="Player" unique_id=2103888469]
+offset_left = 108.0
+offset_top = 190.0
+offset_right = 192.0
+offset_bottom = 225.0
+text = "Trade"
+metadata/_edit_use_anchors_ = true
+
+[node name="Draw and End Turn Button" type="Button" parent="Player" unique_id=122533896]
+offset_left = 71.0
+offset_top = 227.0
+offset_right = 228.0
+offset_bottom = 271.0
+text = "Draw and End Turn"
+metadata/_edit_use_anchors_ = true

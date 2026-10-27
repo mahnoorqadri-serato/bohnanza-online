@@ -9,3 +9,11 @@ func enqueue(card: BeanCard) -> void:
 
 func dequeue() -> BeanCard:
 	return cards.pop_front()
+
+func print() -> String:
+	var cardsInHand : Array[String] = []
+	for card in cards:
+		cardsInHand.append(card.name)
+		
+	return "[" + ", ".join(cardsInHand) + "]"
+	

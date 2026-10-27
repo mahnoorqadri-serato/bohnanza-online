@@ -8,6 +8,9 @@ var shuffleCount: int = 0
 var currentDeck: Array[BeanCard] = []
 const NUM_PLAYERS: int = 4
 var currentPlayer: int = 0		# current turn index
+var players: Array[Player] = []
+
+var playerLabels: Array[Label] = []
 
 const card_data: BeanCardData = preload("res://Data/bean_card_data.tres")
 
@@ -29,6 +32,20 @@ func _ready() -> void:
 		counts[card.name] = counts.get(card.name, 0) + 1
 	print("Initial deck: %d cards %s" % [currentDeck.size(), counts])
 	
+#	================== INITIAL DEAL
+	
+	currentDeck.shuffle() # hopefully this is good enough for now
+	#for card in currentDeck:
+		#print(card.name)
+
+	for i in NUM_PLAYERS:
+		var new_player = Player.new(i)
+		players.append(new_player) #creates a player with 2 bean fields
+		for ii in range(5): #start with 5 cards
+			new_player.hand.enqueue(currentDeck.pop_front())
+		print("Player %d, Hand: %s, Fields: %s" % [new_player.id, new_player.hand.print(), new_player.print_fields()])
+	
+#	================== GAME STARTS
 	start_turn()
 
 func start_turn() -> void:
@@ -41,4 +58,4 @@ func end_turn(_player_index: int) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	

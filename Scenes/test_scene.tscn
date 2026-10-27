@@ -2,18 +2,34 @@
 
 [ext_resource type="Script" uid="uid://dxl3b3ox2tsr2" path="res://Scripts/game_manager.gd" id="1_r5l72"]
 [ext_resource type="Script" uid="uid://c75ueu2kcv5c1" path="res://Scenes/button.gd" id="2_r5l72"]
+[ext_resource type="PackedScene" uid="uid://4xyh6c0okiuj" path="res://Scenes/TempPlayerGUI.tscn" id="3_50ct6"]
 
 [node name="TestScene" type="Node3D" unique_id=314350917]
 
 [node name="GameManager" type="Node3D" parent="." unique_id=1534952253]
 script = ExtResource("1_r5l72")
 
-[node name="Button" type="Button" parent="GameManager" unique_id=1424636012]
-offset_left = 40.0
-offset_top = 38.0
-offset_right = 416.0
-offset_bottom = 205.0
+[node name="Turn End Button" type="Button" parent="GameManager" unique_id=1424636012]
+offset_left = 487.0
+offset_top = 329.0
+offset_right = 636.0
+offset_bottom = 420.0
 text = "TURNN END"
 script = ExtResource("2_r5l72")
 
-[connection signal="pressed" from="GameManager/Button" to="GameManager/Button" method="_on_pressed"]
+[node name="TempPlayerGui" parent="." unique_id=54502975 instance=ExtResource("3_50ct6")]
+playerNumber = 1
+
+[node name="TempPlayerGui2" parent="." unique_id=1907998952 instance=ExtResource("3_50ct6")]
+position = Vector2(260, 9)
+playerNumber = 2
+
+[node name="TempPlayerGui3" parent="." unique_id=69556352 instance=ExtResource("3_50ct6")]
+position = Vector2(504, 13)
+playerNumber = 3
+
+[node name="TempPlayerGui4" parent="." unique_id=1581087079 instance=ExtResource("3_50ct6")]
+position = Vector2(776, 6)
+playerNumber = 4
+
+[connection signal="pressed" from="GameManager/Turn End Button" to="GameManager/Turn End Button" method="_on_pressed"]
