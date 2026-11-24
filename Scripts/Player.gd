@@ -15,7 +15,7 @@ func _init(player_id, field_count: int = 2) -> void:
 	for _i in clampi(field_count, 0, MAX_FIELDS):
 		fields.append(Field.new())
 		
-	connect("turn_started", play_turn)
+	connect("turn_started", on_turn_started)
 
 func add_field() -> void:
 	if fields.size() >= MAX_FIELDS:
@@ -31,5 +31,6 @@ func print_fields() -> String:
 			names.append(field.card.name)
 	return "[" + ", ".join(names) + "]"
 		
-func play_turn() -> void:
+func on_turn_started() -> void:
+	print("Player %d's turn" % id)
 	return

@@ -1,5 +1,9 @@
 extends Node
 
+var playerGuis: Array[Node2D] = []
+const TEMP_PLAYER_GUI = preload("res://Scenes/TempPlayerGUI.tscn")
+const GUI_HORZ_SPACING : int = 200
+
 signal turn_started(player_index: int)
 signal turn_ended(player_index: int)
 
@@ -43,9 +47,18 @@ func _ready() -> void:
 		players.append(new_player) #creates a player with 2 bean fields
 		for ii in range(5): #start with 5 cards
 			new_player.hand.enqueue(currentDeck.pop_front())
+
+		#generate temp gui
+		var gui = TEMP_PLAYER_GUI.instantiate()
+		add_child(gui) # to make it show on screen, so that _ready and @onready run
+		gui.set_player_label(new_player.id)
+		gui.position.x += new_player.id * GUI_HORZ_SPACING
+		playerGuis.append( gui )
 		print("Player %d, Hand: %s, Fields: %s" % [new_player.id, new_player.hand.print(), new_player.print_fields()])
 	
 #	================== GAME STARTS
+
+	print("GAME START \n \n \n")
 	start_turn()
 
 func start_turn() -> void:
