@@ -52,6 +52,7 @@ func _ready() -> void:
 		var gui = TEMP_PLAYER_GUI.instantiate()
 		add_child(gui) # to make it show on screen, so that _ready and @onready run
 		gui.set_player_label(new_player.id)
+		gui.set_player_hand(new_player.hand)
 		gui.position.x += new_player.id * GUI_HORZ_SPACING
 		playerGuis.append( gui )
 		print("Player %d, Hand: %s, Fields: %s" % [new_player.id, new_player.hand.print(), new_player.print_fields()])
